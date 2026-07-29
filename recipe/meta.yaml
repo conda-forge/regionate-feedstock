@@ -20,13 +20,14 @@ requirements:
     - python {{ python_min }}
     - pip
     - hatchling
+    - hatch-vcs
   run:
     - python >={{ python_min }}
     - pyproj
     - geopandas
     - regionmask
     - contourpy
-    - sectionate >=0.3.3
+    - sectionate >=0.3.4,<0.4
 
 test:
   requires:
