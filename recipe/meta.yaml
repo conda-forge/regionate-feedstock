@@ -1,5 +1,5 @@
 {% set name = "regionate" %}
-{% set version = "0.5.5" %}
+{% set version = "0.5.6" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/r/regionate/regionate-{{ version }}.tar.gz
-  sha256: 1e7db126ee20b207a027bcd8c2e493cebe312f2b6202de7a1fb4a3d82c81a942
+  sha256: ef07c411fd6a84b5cdcee4fd2c8074bda81f4760f399393141eff21d0e40fcf8
 
 build:
   noarch: python
@@ -20,13 +20,18 @@ requirements:
     - python {{ python_min }}
     - pip
     - hatchling
+    - hatch-vcs
   run:
     - python >={{ python_min }}
     - pyproj
     - geopandas
-    - regionmask
+    # regionate calls `regionmask.mask_geopandas`, added in regionmask 0.6.
+    # Unbounded, the solver selects the 2019-era regionmask 0.4.0 still on this
+    # channel, which does not have that function. Upstream declares >=0.13 as of
+    # regionate 0.5.7.
+    - regionmask >=0.13
     - contourpy
-    - sectionate >=0.3.3
+    - sectionate >=0.3.4,<0.4
 
 test:
   requires:
