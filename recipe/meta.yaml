@@ -25,7 +25,11 @@ requirements:
     - python >={{ python_min }}
     - pyproj
     - geopandas
-    - regionmask
+    # regionate calls `regionmask.mask_geopandas`, added in regionmask 0.6.
+    # Unbounded, the solver selects the 2019-era regionmask 0.4.0 still on this
+    # channel, which does not have that function. Upstream declares >=0.13 as of
+    # regionate 0.5.7.
+    - regionmask >=0.13
     - contourpy
     - sectionate >=0.3.4,<0.4
 
