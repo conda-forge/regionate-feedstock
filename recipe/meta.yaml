@@ -1,5 +1,5 @@
 {% set name = "regionate" %}
-{% set version = "0.5.7" %}
+{% set version = "0.5.8" %}
 {% set python_min = "3.11" %}
 
 package:
@@ -7,8 +7,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/r/regionate/regionate-{{ version }}.tar.gz
-  sha256: 6d2617afd9bcc8b61b2e7cd989d3ceb399e5bb9db957996de49eadb25bcc7e57
+  url: https://files.pythonhosted.org/packages/source/r/regionate/regionate-{{ version }}.tar.gz
+  sha256: 978dfc2cb265c8574fb0b6b2318a7a69f080f7d7e43cb0613b2900c62fdf532d
 
 build:
   noarch: python
